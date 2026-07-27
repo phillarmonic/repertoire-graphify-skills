@@ -62,7 +62,11 @@ done < <(
 while IFS=$'\t' read -r platform native_path treatment; do
   [[ -n "$platform" && "$platform" != \#* ]] || continue
 
-  native_file="$native_root/$platform/project/$native_path"
+  if [[ "$platform" == git-hooks ]]; then
+    native_file="$native_root/git-hooks/project/hooks/${native_path##*/}"
+  else
+    native_file="$native_root/$platform/project/$native_path"
+  fi
   [[ -f "$native_file" ]] ||
     fail "mapped native artifact is missing: $platform/$native_path"
 
@@ -75,7 +79,7 @@ while IFS=$'\t' read -r platform native_path treatment; do
     fail "catalog destination is undeclared: $destination"
 done <"$artifact_map"
 
-if matches=$(rg -n \
+if matches=$(grep -ERn \
   '<GRAPHIFY_BIN>|([A-Za-z]:[\\/]|/)[^"[:space:]]*graphify(\.exe)? hook-check' \
   "$native_root" "$catalog_root/project-files" 2>/dev/null); then
   fail "committed hook commands must use the graphify binary from PATH:

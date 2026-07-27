@@ -69,7 +69,7 @@ while IFS= read -r artifact; do
   grep -Fq "Modified by Phillarmonic Software" "$sidecar"
 done < <(find project-files -type f ! -name '*.license' -print)
 
-if rg -q 'source: .*\.license$' repertoire.yaml; then
+if grep -Eq 'source: .*\.license$' repertoire.yaml; then
   echo "License sidecars must not be installed as project artifacts." >&2
   exit 1
 fi
@@ -78,7 +78,9 @@ if ! grep -Fq '"command": "graphify hook-check"' project-files/codex/hooks.json;
   echo "Codex hooks must invoke graphify by binary name through PATH." >&2
   exit 1
 fi
-if rg -q '<GRAPHIFY_BIN>|([A-Za-z]:[\\/]|/)[^"[:space:]]*graphify(\.exe)? hook-check' project-files; then
+if grep -ERq \
+  '<GRAPHIFY_BIN>|([A-Za-z]:[\\/]|/)[^"[:space:]]*graphify(\.exe)? hook-check' \
+  project-files; then
   echo "Project hook commands must not contain an absolute Graphify path." >&2
   exit 1
 fi

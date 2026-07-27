@@ -99,14 +99,14 @@ done <<<"$platforms"
 hooks_run="$scratch_root/git-hooks"
 mkdir -p "$hooks_run/project"
 git -C "$hooks_run/project" init -q
-mkdir -p "$next_root/git-hooks/project/.git/hooks"
+mkdir -p "$next_root/git-hooks/project/hooks"
 (
   cd "$hooks_run/project"
   env HOME="$hooks_run/home" XDG_CONFIG_HOME="$hooks_run/home/.config" \
     "$graphify_bin" hook install
 ) >"$next_root/git-hooks/install.log" 2>&1
-cp "$hooks_run/project/.git/hooks/post-commit" "$next_root/git-hooks/project/.git/hooks/post-commit"
-cp "$hooks_run/project/.git/hooks/post-checkout" "$next_root/git-hooks/project/.git/hooks/post-checkout"
+cp "$hooks_run/project/.git/hooks/post-commit" "$next_root/git-hooks/project/hooks/post-commit"
+cp "$hooks_run/project/.git/hooks/post-checkout" "$next_root/git-hooks/project/hooks/post-checkout"
 # Shell variables stay literal because Perl reads them from its environment.
 # shellcheck disable=SC2016
 FIXTURE_RUN_ROOT="$hooks_run" GRAPHIFY_BIN_PATH="$graphify_bin" GRAPHIFY_PYTHON_PATH="$graphify_python" \

@@ -9,6 +9,11 @@ catalog without relying on another repository.
 - `artifact-map.tsv` records how each native project artifact is represented
   in `repertoire.yaml`.
 
+Git hook fixtures are stored under `native/git-hooks/project/hooks/` because
+Git cannot track a nested `.git/` directory. Their native destinations remain
+`.git/hooks/post-commit` and `.git/hooks/post-checkout`, as recorded in the
+artifact map.
+
 Refresh the snapshots with:
 
 ```sh
