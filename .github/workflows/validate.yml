@@ -65,6 +65,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: phillarmonic/repertoire-ai
+          ref: feature/hooks
           path: repertoire-ai
 
       - name: Set up Go

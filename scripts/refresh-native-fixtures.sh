@@ -27,6 +27,44 @@ cleanup() {
 }
 trap cleanup EXIT
 
+fixture_file_list() {
+  (
+    cd "$1"
+    find . -type f -print | LC_ALL=C sort
+  )
+}
+
+fixtures_match() {
+  local expected_files="$scratch_root/expected-files.txt"
+  local actual_files="$scratch_root/actual-files.txt"
+  local relative
+
+  fixture_file_list "$fixture_root" >"$expected_files"
+  fixture_file_list "$next_root" >"$actual_files"
+  cmp -s "$expected_files" "$actual_files" || return 1
+
+  while IFS= read -r relative; do
+    cmp -s "$fixture_root/$relative" "$next_root/$relative" || return 1
+  done <"$expected_files"
+}
+
+print_fixture_diff() {
+  local expected_files="$scratch_root/expected-files.txt"
+  local actual_files="$scratch_root/actual-files.txt"
+  local relative
+
+  fixture_file_list "$fixture_root" >"$expected_files"
+  fixture_file_list "$next_root" >"$actual_files"
+  diff -u "$expected_files" "$actual_files" || true
+
+  comm -12 "$expected_files" "$actual_files" |
+    while IFS= read -r relative; do
+      if ! cmp -s "$fixture_root/$relative" "$next_root/$relative"; then
+        diff -u "$fixture_root/$relative" "$next_root/$relative" || true
+      fi
+    done
+}
+
 platforms=$(
   "$graphify_bin" install --help |
     sed -n 's/^Platforms: //p' |
@@ -121,8 +159,8 @@ FIXTURE_RUN_ROOT="$hooks_run" GRAPHIFY_BIN_PATH="$graphify_bin" GRAPHIFY_PYTHON_
     ' {} +
 
 if [[ -d "$fixture_root" ]]; then
-  if ! diff -qr "$fixture_root" "$next_root" >/dev/null; then
-    diff -ruN "$fixture_root" "$next_root" || true
+  if ! fixtures_match; then
+    print_fixture_diff
     if [[ "$check_only" == true ]]; then
       echo "Native Graphify fixtures are stale." >&2
       exit 1
