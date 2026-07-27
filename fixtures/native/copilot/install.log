@@ -1,0 +1,15 @@
+$ graphify install --project --platform copilot
+  references       ->  .copilot/skills/graphify/references
+  skill installed  ->  .copilot/skills/graphify/SKILL.md
+
+Project-scoped install. Add to version control:
+  git add .copilot/
+
+$ graphify copilot install
+  references       ->  <FIXTURE_ROOT>/home/.copilot/skills/graphify/references
+  skill installed  ->  <FIXTURE_ROOT>/home/.copilot/skills/graphify/SKILL.md
+
+Done. Open your AI coding assistant and type:
+
+  /graphify .
+

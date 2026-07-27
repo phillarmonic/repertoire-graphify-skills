@@ -1,0 +1,18 @@
+$ graphify install --project --platform codex
+  references       ->  .codex/skills/graphify/references
+  skill installed  ->  .codex/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+  .codex/hooks.json  ->  PreToolUse hook registered (graphify hook-check)
+
+Codex will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Project-scoped install. Add to version control:
+  git add .codex/ AGENTS.md
+
+$ graphify codex install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+  .codex/hooks.json  ->  PreToolUse hook registered (graphify hook-check)
+
+Codex will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.

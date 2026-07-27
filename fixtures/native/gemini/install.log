@@ -1,0 +1,20 @@
+$ graphify install --project --platform gemini
+  references       ->  .gemini/skills/graphify/references
+  skill installed  ->  .gemini/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/GEMINI.md
+  .gemini/settings.json  ->  BeforeTool hook registered
+
+Project-scoped install. Add to version control:
+  git add .gemini/ GEMINI.md
+
+Gemini CLI will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+$ graphify gemini install
+  references       ->  <FIXTURE_ROOT>/home/.gemini/skills/graphify/references
+  skill installed  ->  <FIXTURE_ROOT>/home/.gemini/skills/graphify/SKILL.md
+graphify already configured in <FIXTURE_ROOT>/project/GEMINI.md (no change)
+  .gemini/settings.json  ->  BeforeTool hook registered
+
+Gemini CLI will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.

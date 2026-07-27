@@ -1,0 +1,90 @@
+# SPDX-FileCopyrightText: 2026 Phillarmonic Software
+# SPDX-License-Identifier: MIT
+
+name: Validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    name: Repository checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out catalog
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Install REUSE
+        run: python -m pip install "reuse[charset-normalizer]"
+
+      - name: Check licensing
+        run: |
+          reuse lint
+          ./scripts/check-licenses.sh
+
+      - name: Check native coverage
+        run: ./scripts/check-native-coverage.sh
+
+      - name: Check shell scripts
+        run: shellcheck scripts/*.sh
+
+      - name: Install pinned Graphify
+        run: |
+          version=$(awk '{print $2}' UPSTREAM_VERSION)
+          python -m pip install "graphifyy==$version"
+
+      - name: Check native fixtures
+        run: ./scripts/refresh-native-fixtures.sh --check
+
+  catalog:
+    name: Catalog lifecycle (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out catalog
+        uses: actions/checkout@v7
+        with:
+          path: repertoire-graphify-skills
+
+      - name: Check out Repertoire
+        uses: actions/checkout@v7
+        with:
+          repository: phillarmonic/repertoire-ai
+          path: repertoire-ai
+
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: repertoire-ai/go.mod
+          cache-dependency-path: repertoire-ai/go.sum
+
+      - name: Build Repertoire
+        shell: bash
+        run: |
+          suffix=
+          if [[ "$RUNNER_OS" == Windows ]]; then
+            suffix=.exe
+          fi
+          go -C repertoire-ai build -o "$RUNNER_TEMP/repertoire$suffix" ./cmd/repertoire
+
+      - name: Test clean-slate lifecycle
+        shell: bash
+        env:
+          GRAPHIFY_CATALOG_ROOT: ${{ github.workspace }}/repertoire-graphify-skills
+          REPERTOIRE_BIN: ${{ runner.temp }}/repertoire${{ runner.os == 'Windows' && '.exe' || '' }}
+        run: repertoire-graphify-skills/scripts/check-catalog.sh

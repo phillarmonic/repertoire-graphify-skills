@@ -1,0 +1,28 @@
+$ graphify install --project --platform antigravity
+  references       ->  .agents/skills/graphify/references
+  skill installed  ->  .agents/skills/graphify/SKILL.md
+graphify rule written to <FIXTURE_ROOT>/project/.agents/rules/graphify.md
+graphify workflow written to <FIXTURE_ROOT>/project/.agents/workflows/graphify.md
+
+Project-scoped install. Add to version control:
+  git add .agents/
+
+$ graphify antigravity install
+  references       ->  <FIXTURE_ROOT>/home/.gemini/config/skills/graphify/references
+  skill installed  ->  <FIXTURE_ROOT>/home/.gemini/config/skills/graphify/SKILL.md
+
+Done. Open your AI coding assistant and type:
+
+  /graphify .
+
+graphify rule already configured at <FIXTURE_ROOT>/project/.agents/rules/graphify.md (no change)
+graphify workflow already configured at <FIXTURE_ROOT>/project/.agents/workflows/graphify.md (no change)
+
+Antigravity will now check the knowledge graph before answering
+codebase questions. Run /graphify first to build the graph.
+
+To enable full MCP architecture navigation, add this to ~/.gemini/antigravity/mcp_config.json:
+  "graphify": {
+    "command": "uv",
+    "args": ["run", "--with", "graphifyy", "--with", "mcp", "-m", "graphify.serve", "${workspace.path}/graphify-out/graph.json"]
+  }

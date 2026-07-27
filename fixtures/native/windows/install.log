@@ -1,0 +1,25 @@
+$ graphify install --project --platform windows
+  references       ->  .claude/skills/graphify/references
+  skill installed  ->  .claude/skills/graphify/SKILL.md
+  CLAUDE.md        ->  created at .claude/CLAUDE.md
+
+Project-scoped install. Add to version control:
+  git add .claude/
+
+Done. Open your AI coding assistant and type:
+
+  /graphify .
+
+graphify section written to <FIXTURE_ROOT>/project/CLAUDE.md
+  .claude/settings.json  ->  PreToolUse hooks registered (Bash search + Read/Glob)
+
+Claude Code will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Project-scoped install. Add to version control:
+  git add .claude/ CLAUDE.md
+
+$ graphify windows install
+error: unknown command 'windows'
+Run 'graphify --help' for usage.
+Dedicated installer unavailable (exit 1); generic project install remains canonical.

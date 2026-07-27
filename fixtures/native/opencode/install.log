@@ -1,0 +1,20 @@
+$ graphify install --project --platform opencode
+  references       ->  .opencode/skills/graphify/references
+  skill installed  ->  .opencode/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+  .opencode/plugins/graphify.js  ->  tool.execute.before hook written
+  .opencode/opencode.json  ->  plugin registered
+
+Opencode will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Project-scoped install. Add to version control:
+  git add .opencode/ AGENTS.md
+
+$ graphify opencode install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+  .opencode/plugins/graphify.js  ->  tool.execute.before hook written
+  .opencode/opencode.json  ->  plugin already registered (no change)
+
+Opencode will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.

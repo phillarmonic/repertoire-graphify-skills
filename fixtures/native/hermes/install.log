@@ -1,0 +1,22 @@
+$ graphify install --project --platform hermes
+  references       ->  .hermes/skills/graphify/references
+  skill installed  ->  .hermes/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Hermes will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Hermes — the AGENTS.md rules are the always-on mechanism.
+
+Project-scoped install. Add to version control:
+  git add .hermes/ AGENTS.md
+
+$ graphify hermes install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+
+Hermes will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Hermes — the AGENTS.md rules are the always-on mechanism.

@@ -1,0 +1,23 @@
+version = 1
+SPDX-PackageName = "Graphify"
+SPDX-PackageSupplier = "Graphify contributors"
+SPDX-PackageDownloadLocation = "https://github.com/Graphify-Labs/graphify"
+
+[[annotations]]
+path = ["skills/**", "platforms/**", "project-files/**", "fixtures/native/**", "NOTICE"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Safi Shamsi and the Graphify contributors"
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileComment = "Generated from Graphify. SKILL.md names and portable project\n artifacts may be modified by Phillarmonic Software for Repertoire packaging."
+
+[[annotations]]
+path = [".github/**", ".gitignore", "CONTRIBUTING.md", "README.md", "REUSE.toml", "UPSTREAM_VERSION", "repertoire.yaml", "fixtures/README.md", "fixtures/artifact-map.tsv", "pointers/**", "scripts/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Phillarmonic Software"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "LICENSE-MIT"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Safi Shamsi"
+SPDX-License-Identifier = "MIT"

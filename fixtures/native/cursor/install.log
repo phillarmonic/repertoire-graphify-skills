@@ -1,0 +1,11 @@
+$ graphify install --project --platform cursor
+graphify rule written at <FIXTURE_ROOT>/project/.cursor/rules/graphify.mdc
+
+Cursor will now always include the knowledge graph context.
+Run /graphify . first to build the graph if you haven't already.
+
+Project-scoped install. Add to version control:
+  git add .cursor/
+
+$ graphify cursor install
+graphify rule at .cursor/rules/graphify.mdc already configured (no change)

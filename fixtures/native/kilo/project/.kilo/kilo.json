@@ -1,0 +1,5 @@
+{
+  "plugin": [
+    "file://<FIXTURE_ROOT>/project/.kilo/plugins/graphify.js"
+  ]
+}

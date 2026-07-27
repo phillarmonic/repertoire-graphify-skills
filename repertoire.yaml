@@ -1,0 +1,221 @@
+schema: 1
+catalog:
+  name: graphify
+  description: Platform-specific Graphify skills, hooks, and project instructions
+  skills:
+    graphify:
+      path: skills/graphify
+      variants:
+        agents: platforms/agents
+        aider: platforms/aider
+        amp: platforms/amp
+        antigravity: platforms/antigravity
+        antigravity-windows: platforms/antigravity-windows
+        claude: platforms/claude
+        claw: platforms/claw
+        codebuddy: platforms/codebuddy
+        codex: platforms/codex
+        copilot: platforms/copilot
+        cursor: platforms/cursor
+        devin: platforms/devin
+        droid: platforms/droid
+        gemini: platforms/gemini
+        hermes: platforms/hermes
+        kilo: platforms/kilo
+        kimi: platforms/kimi
+        kiro: platforms/kiro
+        openclaw: platforms/openclaw
+        opencode: platforms/opencode
+        pi: platforms/pi
+        trae: platforms/trae
+        trae-cn: platforms/trae-cn
+        vscode: platforms/vscode
+        windows: platforms/windows
+        windsurf: platforms/windsurf
+      instructions:
+        agents:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        aider:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        amp:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        antigravity:
+          - id: antigravity-rule
+            source: pointers/antigravity-rule.md
+            destination: .agents/rules/graphify.md
+            mode: copy
+          - id: antigravity-workflow
+            source: pointers/antigravity-workflow.md
+            destination: .agents/workflows/graphify.md
+            mode: copy
+        antigravity-windows:
+          - id: antigravity-rule
+            source: pointers/antigravity-rule.md
+            destination: .agents/rules/graphify.md
+            mode: copy
+          - id: antigravity-workflow
+            source: pointers/antigravity-workflow.md
+            destination: .agents/workflows/graphify.md
+            mode: copy
+        claude:
+          - id: claude-guidance
+            source: pointers/claude.md
+            destination: CLAUDE.md
+            mode: markdown-section
+          - id: claude-registration
+            source: pointers/claude.md
+            destination: .claude/CLAUDE.md
+            mode: copy
+        claw:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        codebuddy:
+          - id: codebuddy-guidance
+            source: pointers/claude.md
+            destination: CODEBUDDY.md
+            mode: markdown-section
+        codex:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        copilot:
+          - id: copilot-guidance
+            source: pointers/vscode.md
+            destination: .github/copilot-instructions.md
+            mode: markdown-section
+        cursor:
+          - id: cursor-rule
+            source: pointers/cursor.mdc
+            destination: .cursor/rules/graphify.mdc
+            mode: copy
+        devin:
+          - id: windsurf-rule
+            source: pointers/devin.md
+            destination: .windsurf/rules/graphify.md
+            mode: copy
+        droid:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        gemini:
+          - id: gemini-guidance
+            source: pointers/gemini.md
+            destination: GEMINI.md
+            mode: markdown-section
+        hermes:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        kilo:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        kiro:
+          - id: kiro-steering
+            source: pointers/kiro.md
+            destination: .kiro/steering/graphify.md
+            mode: copy
+        openclaw:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        opencode:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        trae:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        trae-cn:
+          - id: agents-guidance
+            source: pointers/agents.md
+            destination: AGENTS.md
+            mode: markdown-section
+        vscode:
+          - id: copilot-guidance
+            source: pointers/vscode.md
+            destination: .github/copilot-instructions.md
+            mode: markdown-section
+        windows:
+          - id: claude-guidance
+            source: pointers/claude.md
+            destination: CLAUDE.md
+            mode: markdown-section
+          - id: claude-registration
+            source: pointers/claude.md
+            destination: .claude/CLAUDE.md
+            mode: copy
+      artifacts:
+        all:
+          - id: git-post-commit
+            source: project-files/git-hooks/post-commit
+            destination: .git/hooks/post-commit
+            mode: copy
+            executable: true
+          - id: git-post-checkout
+            source: project-files/git-hooks/post-checkout
+            destination: .git/hooks/post-checkout
+            mode: copy
+            executable: true
+        claude:
+          - id: claude-hooks
+            source: project-files/claude/settings.json
+            destination: .claude/settings.json
+            mode: json-merge
+        codebuddy:
+          - id: codebuddy-hooks
+            source: project-files/codebuddy/settings.json
+            destination: .codebuddy/settings.json
+            mode: json-merge
+        codex:
+          - id: codex-hooks
+            source: project-files/codex/hooks.json
+            destination: .codex/hooks.json
+            mode: json-merge
+        gemini:
+          - id: gemini-hooks
+            source: project-files/gemini/settings.json
+            destination: .gemini/settings.json
+            mode: json-merge
+        kilo:
+          - id: kilo-plugin-config
+            source: project-files/kilo/kilo.json
+            destination: .kilo/kilo.json
+            mode: json-merge
+          - id: kilo-plugin
+            source: project-files/kilo/graphify.js
+            destination: .kilo/plugins/graphify.js
+            mode: copy
+        opencode:
+          - id: opencode-plugin-config
+            source: project-files/opencode/opencode.json
+            destination: .opencode/opencode.json
+            mode: json-merge
+          - id: opencode-plugin
+            source: project-files/opencode/graphify.js
+            destination: .opencode/plugins/graphify.js
+            mode: copy
+        windows:
+          - id: claude-hooks
+            source: project-files/claude/settings.json
+            destination: .claude/settings.json
+            mode: json-merge

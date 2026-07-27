@@ -1,0 +1,22 @@
+$ graphify install --project --platform trae
+  references       ->  .trae/skills/graphify/references
+  skill installed  ->  .trae/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Trae will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Trae — the AGENTS.md rules are the always-on mechanism.
+
+Project-scoped install. Add to version control:
+  git add .trae/ AGENTS.md
+
+$ graphify trae install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+
+Trae will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Trae — the AGENTS.md rules are the always-on mechanism.

@@ -1,0 +1,24 @@
+$ graphify install --project --platform amp
+  references       ->  .agents/skills/graphify/references
+  skill installed  ->  .agents/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Amp will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Amp — the AGENTS.md rules are the always-on mechanism.
+
+Project-scoped install. Add to version control:
+  git add .agents/ AGENTS.md
+
+$ graphify amp install
+  references       ->  <FIXTURE_ROOT>/home/.config/agents/skills/graphify/references
+  skill installed  ->  <FIXTURE_ROOT>/home/.config/agents/skills/graphify/SKILL.md
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+
+Amp will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Amp — the AGENTS.md rules are the always-on mechanism.

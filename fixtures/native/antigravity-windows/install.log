@@ -1,0 +1,16 @@
+$ graphify install --project --platform antigravity-windows
+  references       ->  .agents/skills/graphify/references
+  skill installed  ->  .agents/skills/graphify/SKILL.md
+
+Project-scoped install. Add to version control:
+  git add .agents/
+
+Done. Open your AI coding assistant and type:
+
+  /graphify .
+
+
+$ graphify antigravity-windows install
+error: unknown command 'antigravity-windows'
+Run 'graphify --help' for usage.
+Dedicated installer unavailable (exit 1); generic project install remains canonical.

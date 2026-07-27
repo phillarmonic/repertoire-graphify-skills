@@ -1,0 +1,5 @@
+{
+  "plugin": [
+    ".kilo/plugins/graphify.js"
+  ]
+}

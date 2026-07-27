@@ -1,0 +1,14 @@
+$ graphify install --project --platform devin
+  skill installed  ->  .devin/skills/graphify/SKILL.md
+  rules written  ->  .windsurf/rules/graphify.md
+
+Project-scoped install. Add to version control:
+  git add .devin/ .windsurf/
+
+$ graphify devin install
+  skill installed  ->  <FIXTURE_ROOT>/home/.config/devin/skills/graphify/SKILL.md
+
+Done. Open your AI coding assistant and type:
+
+  /graphify .
+

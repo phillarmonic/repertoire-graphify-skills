@@ -1,0 +1,11 @@
+This repository contains components under separate licenses.
+
+Phillarmonic-authored activation pointers, catalog metadata, documentation, and
+maintenance tooling are licensed under the MIT License. See LICENSES/MIT.txt.
+
+Graphify skill bundles, references, hooks, rules, plugins, and other generated
+project artifacts, including the normalized native installer fixtures, are
+derived from Graphify and remain licensed under the Apache License, Version
+2.0. See LICENSES/Apache-2.0.txt and NOTICE.
+
+The exact file and path assignments are recorded in REUSE.toml.

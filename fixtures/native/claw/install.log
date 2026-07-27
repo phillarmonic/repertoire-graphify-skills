@@ -1,0 +1,22 @@
+$ graphify install --project --platform claw
+  references       ->  .openclaw/skills/graphify/references
+  skill installed  ->  .openclaw/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Claw will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Claw — the AGENTS.md rules are the always-on mechanism.
+
+Project-scoped install. Add to version control:
+  git add .openclaw/ AGENTS.md
+
+$ graphify claw install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+
+Claw will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Claw — the AGENTS.md rules are the always-on mechanism.

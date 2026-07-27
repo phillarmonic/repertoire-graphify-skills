@@ -1,0 +1,21 @@
+$ graphify install --project --platform aider
+  skill installed  ->  .aider/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Aider will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Aider — the AGENTS.md rules are the always-on mechanism.
+
+Project-scoped install. Add to version control:
+  git add .aider/ AGENTS.md
+
+$ graphify aider install
+graphify already configured in <FIXTURE_ROOT>/project/AGENTS.md (no change)
+
+Aider will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Aider — the AGENTS.md rules are the always-on mechanism.

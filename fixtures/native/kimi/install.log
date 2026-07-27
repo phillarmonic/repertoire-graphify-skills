@@ -1,0 +1,11 @@
+$ graphify install --project --platform kimi
+  references       ->  .kimi/skills/graphify/references
+  skill installed  ->  .kimi/skills/graphify/SKILL.md
+
+Project-scoped install. Add to version control:
+  git add .kimi/
+
+$ graphify kimi install
+error: unknown command 'kimi'
+Run 'graphify --help' for usage.
+Dedicated installer unavailable (exit 1); generic project install remains canonical.

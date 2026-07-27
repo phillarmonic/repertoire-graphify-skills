@@ -1,0 +1,18 @@
+$ graphify install --project --platform kiro
+  references       ->  .kiro/skills/graphify/references
+  skill installed  ->  .kiro/skills/graphify/SKILL.md
+  .kiro/steering/graphify.md  ->  always-on steering written
+
+Kiro will now read the knowledge graph before every conversation.
+Use /graphify to build or update the graph.
+
+Project-scoped install. Add to version control:
+  git add .kiro/
+
+$ graphify kiro install
+  references       ->  .kiro/skills/graphify/references
+  skill installed  ->  .kiro/skills/graphify/SKILL.md
+  .kiro/steering/graphify.md  ->  already configured (no change)
+
+Kiro will now read the knowledge graph before every conversation.
+Use /graphify to build or update the graph.

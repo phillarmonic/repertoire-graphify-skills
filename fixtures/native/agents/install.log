@@ -1,0 +1,17 @@
+$ graphify install --project --platform agents
+  references       ->  .agents/skills/graphify/references
+  skill installed  ->  .agents/skills/graphify/SKILL.md
+
+Project-scoped install. Add to version control:
+  git add .agents/
+
+$ graphify agents install
+  references       ->  <FIXTURE_ROOT>/home/.agents/skills/graphify/references
+  skill installed  ->  <FIXTURE_ROOT>/home/.agents/skills/graphify/SKILL.md
+graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
+
+Agents will now check the knowledge graph before answering
+codebase questions and rebuild it after code changes.
+
+Note: unlike Claude Code, there is no PreToolUse hook equivalent for
+Agents — the AGENTS.md rules are the always-on mechanism.
