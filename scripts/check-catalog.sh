@@ -73,7 +73,7 @@ EOF
 
 write_bootstrap_manifest() {
   local hooks=$1
-  cat >"$bootstrap_project/.repertoire.yaml" <<EOF
+  cat >"$bootstrap_project/repertoire.yaml" <<EOF
 schema: 1
 
 catalogs:
@@ -87,7 +87,7 @@ skills:
     targets: [codex, copilot]
 EOF
   if [[ "$hooks" == true ]]; then
-    printf '    hooks: true\n' >>"$bootstrap_project/.repertoire.yaml"
+    printf '    hooks: true\n' >>"$bootstrap_project/repertoire.yaml"
   fi
 }
 
