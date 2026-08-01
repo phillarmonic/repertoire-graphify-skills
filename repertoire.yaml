@@ -74,7 +74,7 @@ catalog:
           - id: claude-registration
             source: pointers/claude.md
             destination: .claude/CLAUDE.md
-            mode: copy
+            mode: markdown-section
         claw:
           - id: agents-guidance
             source: pointers/agents.md
@@ -163,7 +163,7 @@ catalog:
           - id: claude-registration
             source: pointers/claude.md
             destination: .claude/CLAUDE.md
-            mode: copy
+            mode: markdown-section
       artifacts:
         all:
           - id: git-post-commit
