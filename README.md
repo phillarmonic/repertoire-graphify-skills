@@ -12,6 +12,40 @@ Repertoire copies hook scripts and configuration as managed data. It does not
 execute any copied hook during installation. Git hook files are executable once
 installed so Git can invoke them later.
 
+## Install with the Repertoire CLI
+
+The quickest way to get the Graphify skill is a single `repertoire add` with
+the source-qualified ID — no catalog registration or manifest edits needed:
+
+```bash
+repertoire add github.com/phillarmonic/repertoire-graphify-skills/graphify --target claude
+```
+
+Repeat `--target` for every agent you use (`--target codex --target copilot`,
+…), or pass `--target all` to install onto every supported target. The command
+installs into user-global scope by default; use `--project` to install into
+the current Git worktree instead.
+
+Add `--with-hooks` to also install Graphify's optional hooks and integrations
+(Git hooks, agent hook configuration, plugins). Without it, interactive `add`
+asks before installing them; noninteractive runs skip them unless the flag is
+present.
+
+If you prefer a short name, register the catalog once and then reference it by
+name:
+
+```bash
+repertoire catalog add github.com/phillarmonic/repertoire-graphify-skills --name graphify
+repertoire add graphify --catalog graphify --target claude
+```
+
+Later maintenance uses the same short name:
+
+```bash
+repertoire update graphify    # refresh the catalog and reinstall
+repertoire remove graphify    # remove the skill and its managed pointers
+```
+
 ## Global bootstrap
 
 The primary installation style keeps Graphify's platform skill bundles in the
