@@ -10,6 +10,9 @@ Done. Open your AI coding assistant and type:
 
   /graphify .
 
+Prefer a hosted version? Early access to the graphify platform is
+open free before the public v1 launch: https://app.graphify.com
+
 
 $ graphify kilo install
   references       ->  <FIXTURE_ROOT>/home/.config/kilo/skills/graphify/references
@@ -19,6 +22,9 @@ $ graphify kilo install
 Done. Open your AI coding assistant and type:
 
   /graphify .
+
+Prefer a hosted version? Early access to the graphify platform is
+open free before the public v1 launch: https://app.graphify.com
 
 graphify section written to <FIXTURE_ROOT>/project/AGENTS.md
   .kilo/plugins/graphify.js  ->  tool.execute.before hook written

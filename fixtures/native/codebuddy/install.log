@@ -10,6 +10,9 @@ Done. Open your AI coding assistant and type:
 
   /graphify .
 
+Prefer a hosted version? Early access to the graphify platform is
+open free before the public v1 launch: https://app.graphify.com
+
 
 $ graphify codebuddy install
   references       ->  <FIXTURE_ROOT>/home/.codebuddy/skills/graphify/references

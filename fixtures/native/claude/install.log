@@ -10,8 +10,11 @@ Done. Open your AI coding assistant and type:
 
   /graphify .
 
+Prefer a hosted version? Early access to the graphify platform is
+open free before the public v1 launch: https://app.graphify.com
+
 graphify section written to <FIXTURE_ROOT>/project/CLAUDE.md
-  .claude/settings.json  ->  PreToolUse hooks registered (Bash search + Read/Glob)
+  .claude/settings.json  ->  PreToolUse hooks registered (Bash|Grep search + Read/Glob)
 
 Claude Code will now check the knowledge graph before answering
 codebase questions and rebuild it after code changes.
@@ -21,7 +24,7 @@ Project-scoped install. Add to version control:
 
 $ graphify claude install
 graphify already configured in <FIXTURE_ROOT>/project/CLAUDE.md (no change)
-  .claude/settings.json  ->  PreToolUse hooks registered (Bash search + Read/Glob)
+  .claude/settings.json  ->  PreToolUse hooks registered (Bash|Grep search + Read/Glob)
 
 Claude Code will now check the knowledge graph before answering
 codebase questions and rebuild it after code changes.
