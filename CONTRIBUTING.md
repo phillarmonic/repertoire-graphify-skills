@@ -28,6 +28,10 @@ change survives the next refresh.
 
 ## Refreshing Graphify
 
+The refresh can run locally (steps below) or inside Docker (next section).
+Either way the result is identical; Docker avoids upgrading the `graphifyy`
+package in your local Python environment.
+
 1. Upgrade the native package:
 
    ```sh
@@ -74,6 +78,27 @@ change survives the next refresh.
 8. Update this guide when Graphify changes its platform list, schema, commands,
    or hook behavior. `sync-from-installed-graphify.sh` records the installed
    release in `UPSTREAM_VERSION`.
+
+### Refreshing with Docker
+
+The repository `Dockerfile` builds an isolated image with a pinned upstream
+`graphifyy` release and everything the scripts need (git, perl, rsync). It
+replaces steps 1, 2, and 4 above:
+
+```sh
+docker build --build-arg GRAPHIFY_VERSION=<x.y.z> -t repertoire-graphify-sync .
+docker run --rm -v "$PWD:/work" \
+  -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+  repertoire-graphify-sync
+```
+
+The container mounts this repository at `/work` and runs
+`scripts/docker-sync-entrypoint.sh`, which executes
+`refresh-native-fixtures.sh` followed by `sync-from-installed-graphify.sh`.
+`HOST_UID`/`HOST_GID` are optional; when set, files written into the mounted
+repository are chowned back to the invoking user instead of staying
+root-owned. Review the diff and run the validation scripts from step 6 as
+usual.
 
 The committed native snapshots replace a separate fixture repository. Managed
 catalog installations are generated in temporary projects by

@@ -106,7 +106,9 @@ artifacts but leaves the MIT-authored `pointers/` directory untouched. Review
 those pointers when Graphify changes its skill activation contract.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the mechanical refresh and validation
-procedure. For a clean-slate local check with a freshly built Repertoire binary:
+procedure, including a Docker-based refresh (`Dockerfile`) that pins the
+upstream `graphifyy` release without touching the local Python environment.
+For a clean-slate local check with a freshly built Repertoire binary:
 
 ```sh
 REPERTOIRE_BIN=/path/to/repertoire ./scripts/check-catalog.sh

@@ -114,6 +114,7 @@ while IFS= read -r platform; do
   rsync -a \
     --exclude '.git/' \
     --exclude 'graphify-out/' \
+    --exclude '*.graphify-bak' \
     "$project_root/" "$output_root/project/"
   rsync -a \
     --exclude '.cache/' \
