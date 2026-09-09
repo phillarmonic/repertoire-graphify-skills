@@ -5,7 +5,7 @@
 # release, without touching the local Python/Homebrew setup.
 #
 # Build (pin the upstream version here):
-#   docker build --build-arg GRAPHIFY_VERSION=0.9.55 -t repertoire-graphify-sync .
+#   docker build --build-arg GRAPHIFY_VERSION=0.9.57 -t repertoire-graphify-sync .
 #
 # Run (mounts this repo; both scripts run in order):
 #   docker run --rm -v "$PWD:/work" repertoire-graphify-sync
@@ -18,7 +18,7 @@
 
 FROM python:3.13-bookworm
 
-ARG GRAPHIFY_VERSION=0.9.55
+ARG GRAPHIFY_VERSION=0.9.57
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git perl rsync \

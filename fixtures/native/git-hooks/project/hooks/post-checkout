@@ -2,6 +2,7 @@
 # graphify-checkout-hook-start
 # Auto-rebuilds the knowledge graph (code only) when switching branches.
 # Installed by: graphify hook install
+(
 
 # Deterministic clustering: networkx louvain iterates string-keyed sets whose
 # order is randomized per-process by PYTHONHASHSEED, so community assignments
@@ -167,17 +168,30 @@ echo "[graphify] Branch switched - launching background rebuild (log: $_GRAPHIFY
 _src = '''
 from graphify.watch import _rebuild_code, _apply_resource_limits
 from pathlib import Path
-import os, signal, sys, threading
+import os, signal, sys, threading, multiprocessing
 try:
     _apply_resource_limits()
     _timeout = int(os.environ.get('GRAPHIFY_REBUILD_TIMEOUT', '600'))
     if _timeout > 0:
         if hasattr(signal, 'SIGALRM'):
-            signal.signal(signal.SIGALRM, lambda *_: (_ for _ in ()).throw(TimeoutError(f'graphify rebuild exceeded {_timeout}s')))
+            def _sigalrm_bail(*_a):
+                # Killing here, before the exception unwinds, matters: once
+                # TimeoutError starts propagating it passes straight through
+                # the ProcessPoolExecutor with-block's own __exit__, which
+                # calls shutdown(wait=True) and blocks until every worker
+                # exits -- forever, for a worker stuck the way #3341 was,
+                # since the alarm firing never actually stops it. Killing the
+                # workers first means shutdown has nothing left to wait for.
+                for _child in multiprocessing.active_children():
+                    _child.kill()
+                raise TimeoutError(f'graphify rebuild exceeded {_timeout}s')
+            signal.signal(signal.SIGALRM, _sigalrm_bail)
             signal.alarm(_timeout)
         else:
             def _bail():
                 print(f'[graphify] graphify rebuild exceeded {_timeout}s', flush=True)
+                for _child in multiprocessing.active_children():
+                    _child.kill()
                 os._exit(1)
             _watchdog = threading.Timer(_timeout, _bail)
             _watchdog.daemon = True
@@ -230,4 +244,5 @@ if os.name == 'nt':
 else:
     subprocess.Popen(_cmd, start_new_session=True, **_kw)
 "
+)
 # graphify-checkout-hook-end
