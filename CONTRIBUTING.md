@@ -4,6 +4,9 @@ This repository is a reviewed Repertoire translation of Graphify's native
 installer surfaces. Changes normally begin with an upstream Graphify release,
 not hand edits to generated bundles.
 
+Agents working here should read [AGENTS.md](AGENTS.md) first for the short,
+Docker-first refresh path and the review and validation steps.
+
 ## Repository ownership
 
 The following paths are generated from Graphify and retain its Apache-2.0

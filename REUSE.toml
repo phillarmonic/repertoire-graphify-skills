@@ -11,7 +11,7 @@ SPDX-License-Identifier = "Apache-2.0"
 SPDX-FileComment = "Generated from Graphify. SKILL.md names and portable project\n artifacts may be modified by Phillarmonic Software for Repertoire packaging."
 
 [[annotations]]
-path = [".github/**", ".gitignore", "CONTRIBUTING.md", "README.md", "REUSE.toml", "UPSTREAM_VERSION", "repertoire.yaml", "fixtures/README.md", "fixtures/artifact-map.tsv", "pointers/**", "scripts/**"]
+path = [".github/**", ".gitignore", "AGENTS.md", "CONTRIBUTING.md", "README.md", "REUSE.toml", "UPSTREAM_VERSION", "repertoire.yaml", "fixtures/README.md", "fixtures/artifact-map.tsv", "pointers/**", "scripts/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Phillarmonic Software"
 SPDX-License-Identifier = "MIT"
