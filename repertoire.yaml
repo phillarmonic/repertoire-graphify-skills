@@ -206,10 +206,6 @@ catalog:
             destination: .kilo/plugins/graphify.js
             mode: copy
         opencode:
-          - id: opencode-plugin-config
-            source: project-files/opencode/opencode.json
-            destination: .opencode/opencode.json
-            mode: json-merge
           - id: opencode-plugin
             source: project-files/opencode/graphify.js
             destination: .opencode/plugins/graphify.js

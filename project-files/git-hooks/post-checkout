@@ -55,6 +55,13 @@ _GFY_COMMONDIR=$(cd "$(git rev-parse --git-common-dir 2>/dev/null)" 2>/dev/null 
 if [ -n "$_GFY_COMMONDIR" ] && [ "$_GFY_GITDIR" != "$_GFY_COMMONDIR" ]; then
     exit 0
 fi
+if [ -z "${GIT_WORK_TREE:-}" ] && [ "${_GFY_COMMONDIR##*/}" = ".git" ]; then
+    _GFY_TOP=${_GFY_COMMONDIR%/*}
+else
+    _GFY_TOP=$(git rev-parse --show-toplevel 2>/dev/null)
+fi
+[ -n "$_GFY_TOP" ] && cd "$_GFY_TOP" || exit 0
+[ -n "$_GFY_GITDIR" ] && GIT_DIR=$_GFY_GITDIR
 # Detect the correct Python interpreter (handles uv tool, pipx, venv, system installs).
 # _PINNED was recorded at hook-install time; tried first so the hook works even
 # when the graphify launcher is not on PATH (common in GUI clients and CI).
@@ -210,7 +217,7 @@ try:
     # (no changed_paths) is correct here. The flock inside _rebuild_code still
     # prevents pile-ups when commit + checkout fire back-to-back.
     _root = Path('.')
-    _out = os.environ.get('GRAPHIFY_OUT', 'graphify-out')
+    from graphify.paths import GRAPHIFY_OUT as _out
     _saved = Path(_out) / '.graphify_root'
     if _saved.exists():
         _txt = _saved.read_text(encoding='utf-8-sig').strip()

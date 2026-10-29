@@ -22,7 +22,6 @@ kilo	.kilo/kilo.json	json-merge:.kilo/kilo.json
 kilo	.kilo/plugins/graphify.js	copy:.kilo/plugins/graphify.js
 kilo	AGENTS.md	markdown-section:AGENTS.md
 kiro	.kiro/steering/graphify.md	copy:.kiro/steering/graphify.md
-opencode	.opencode/opencode.json	json-merge:.opencode/opencode.json
 opencode	.opencode/plugins/graphify.js	copy:.opencode/plugins/graphify.js
 opencode	AGENTS.md	markdown-section:AGENTS.md
 trae	AGENTS.md	markdown-section:AGENTS.md

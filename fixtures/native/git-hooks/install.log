@@ -1,3 +1,5 @@
 post-commit: installed at <FIXTURE_ROOT>/project/.git/hooks/post-commit
 post-checkout: installed at <FIXTURE_ROOT>/project/.git/hooks/post-checkout
+post-merge: installed at <FIXTURE_ROOT>/project/.git/hooks/post-merge
+post-rewrite: installed at <FIXTURE_ROOT>/project/.git/hooks/post-rewrite
 merge driver: registered (graphify-out/graph.json merge=graphify)

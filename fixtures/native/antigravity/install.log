@@ -15,8 +15,8 @@ Done. Open your AI coding assistant and type:
 
   /graphify .
 
-Prefer a hosted version? Early access to the graphify platform is
-open free before the public v1 launch: https://app.graphify.com
+Prefer a hosted version? Try the graphify platform free for 14 days:
+https://app.graphify.com
 
 graphify rule already configured at <FIXTURE_ROOT>/project/.agents/rules/graphify.md (no change)
 graphify workflow already configured at <FIXTURE_ROOT>/project/.agents/workflows/graphify.md (no change)

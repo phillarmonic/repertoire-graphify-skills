@@ -156,7 +156,6 @@ cp "$fixture_root/gemini/project/.gemini/settings.json" "$catalog_root/project-f
 cp "$fixture_root/kilo/project/.kilo/kilo.json" "$catalog_root/project-files/kilo/kilo.json"
 cp "$fixture_root/kilo/project/.kilo/plugins/graphify.js" "$catalog_root/project-files/kilo/graphify.js"
 cp "$fixture_root/kiro/project/.kiro/steering/graphify.md" "$catalog_root/project-files/kiro/graphify.md"
-cp "$fixture_root/opencode/project/.opencode/opencode.json" "$catalog_root/project-files/opencode/opencode.json"
 cp "$fixture_root/opencode/project/.opencode/plugins/graphify.js" "$catalog_root/project-files/opencode/graphify.js"
 cp "$fixture_root/git-hooks/project/hooks/post-commit" "$catalog_root/project-files/git-hooks/post-commit"
 cp "$fixture_root/git-hooks/project/hooks/post-checkout" "$catalog_root/project-files/git-hooks/post-checkout"
