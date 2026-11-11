@@ -1,6 +1,6 @@
 $ graphify install --project --platform pi
-  references       ->  .pi/agent/skills/graphify/references
-  skill installed  ->  .pi/agent/skills/graphify/SKILL.md
+  references       ->  .pi/skills/graphify/references
+  skill installed  ->  .pi/skills/graphify/SKILL.md
 
 Project-scoped install. Add to version control:
   git add .pi/

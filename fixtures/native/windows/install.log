@@ -15,6 +15,7 @@ https://app.graphify.com
 
 graphify section written to <FIXTURE_ROOT>/project/CLAUDE.md
   .claude/settings.json  ->  PreToolUse hooks registered (Bash|Grep search + Read/Glob)
+  .claude/settings.json  ->  SessionStart hook registered (compact: resets the nudge budget)
 
 Claude Code will now check the knowledge graph before answering
 codebase questions and rebuild it after code changes.
